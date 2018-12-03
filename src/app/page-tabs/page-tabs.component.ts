@@ -10,6 +10,7 @@ export class PageTabsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('PageTabsComponent')
   }
 
 }
