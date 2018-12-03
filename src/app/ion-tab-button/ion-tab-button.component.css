@@ -1,0 +1,15 @@
+
+a {
+  display: inline-block;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px;
+}
+
+a:hover {
+  background: red;
+}
+
+.active-tab-button {
+  background: yellow;
+}
