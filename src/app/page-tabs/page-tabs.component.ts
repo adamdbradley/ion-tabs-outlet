@@ -13,4 +13,8 @@ export class PageTabsComponent implements OnInit {
     console.log('PageTabsComponent')
   }
 
+  alert(msg: string) {
+    alert(msg);
+  }
+
 }

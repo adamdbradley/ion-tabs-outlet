@@ -23,10 +23,9 @@ export class IonTabButtonComponent implements OnInit, OnDestroy {
   @HostListener('click', ['$event'])
   onClick(clickEv: UIEvent) {
     // simulating ionTabButtonClick from web component
-    clickEv.preventDefault();
-    clickEv.stopPropagation();
-
-    this.tabs.switchTab(this.tab);
+    if (this.tab) {
+      this.tabs.switchTab(this.tab);
+    }
   }
 
   ngOnInit() {
