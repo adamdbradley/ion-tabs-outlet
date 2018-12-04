@@ -1,5 +1,6 @@
-import { Attribute, Component, OnInit, ViewEncapsulation, OnDestroy, Optional, HostBinding, HostListener } from '@angular/core';
+import { Attribute, Component, OnInit, ViewEncapsulation, OnDestroy, Optional, HostBinding, HostListener, EventEmitter, Output, ElementRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { IonTabsOutletComponent } from '../ion-tabs-outlet/ion-tabs-outlet.component';
 
 
 @Component({
@@ -11,17 +12,22 @@ export class IonTabButtonComponent implements OnInit, OnDestroy {
 
   private _routeSub: any;
 
-  @HostBinding('class.active') isActive: boolean = false;
-
-  @HostListener('click')
-  onClick() {
-    console.log('clicked', this.tab);
-  }
-
   constructor(
     @Optional() @Attribute('tab') private tab: string,
-    private router: Router
+    private router: Router,
+    private tabs: IonTabsOutletComponent
   ) { }
+
+  @HostBinding('class.active') isActive: boolean = false;
+
+  @HostListener('click', ['$event'])
+  onClick(clickEv: UIEvent) {
+    // simulating ionTabButtonClick from web component
+    clickEv.preventDefault();
+    clickEv.stopPropagation();
+
+    this.tabs.switchTab(this.tab);
+  }
 
   ngOnInit() {
     this._routeSub = this.router.events.subscribe(ev => {
@@ -31,6 +37,8 @@ export class IonTabButtonComponent implements OnInit, OnDestroy {
     });
 
     this.checkActive(this.router.url);
+
+    this.tabs.addTabStack(this.tab)
   }
 
   checkActive(currentUrl: string) {
@@ -39,6 +47,7 @@ export class IonTabButtonComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this._routeSub && this._routeSub.unsubscribe();
+    this.tabs.removeTabStack(this.tab)
   }
 
 }
