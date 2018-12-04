@@ -1,0 +1,5 @@
+
+:host(.active) {
+  font-weight: bold;
+  background: yellow;
+}

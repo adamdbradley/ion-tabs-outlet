@@ -10,7 +10,7 @@ import { PageAccountDetailComponent } from './page-account-detail/page-account-d
 
 const routes: Routes = [
   {
-    path: 'getting-started',
+    path: '',
     component: PageGettingStartedComponent
   },
   {
@@ -53,11 +53,6 @@ const routes: Routes = [
         component: PageSettingsComponent
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/getting-started',
-    pathMatch: 'full'
   }
 ];
 
