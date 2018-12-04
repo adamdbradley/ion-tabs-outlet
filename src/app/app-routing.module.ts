@@ -5,6 +5,8 @@ import { PageTabsComponent } from './page-tabs/page-tabs.component';
 import { PageAccountComponent } from './page-account/page-account.component';
 import { PageContactComponent } from './page-contact/page-contact.component';
 import { PageSettingsComponent } from './page-settings/page-settings.component';
+import { PageContactTwoComponent } from './page-contact-two/page-contact-two.component';
+import { PageAccountDetailComponent } from './page-account-detail/page-account-detail.component';
 
 const routes: Routes = [
   {
@@ -17,11 +19,34 @@ const routes: Routes = [
     children: [
       {
         path: 'account',
-        component: PageAccountComponent
+        children: [
+          {
+            path: ':id',
+            component: PageAccountDetailComponent
+          },
+          {
+            path: '',
+            component: PageAccountComponent
+          }
+        ]
       },
       {
         path: 'contact',
-        component: PageContactComponent
+        children: [
+          {
+            path: 'one',
+            component: PageContactComponent
+          },
+          {
+            path: 'two',
+            component: PageContactTwoComponent
+          },
+          {
+            path: '',
+            redirectTo: 'one',
+            pathMatch: 'full'
+          }
+        ]
       },
       {
         path: 'settings',

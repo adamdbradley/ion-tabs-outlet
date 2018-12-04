@@ -11,6 +11,8 @@ import { IonTabButtonComponent } from './ion-tab-button/ion-tab-button.component
 import { PageAccountComponent } from './page-account/page-account.component';
 import { PageContactComponent } from './page-contact/page-contact.component';
 import { PageSettingsComponent } from './page-settings/page-settings.component';
+import { PageContactTwoComponent } from './page-contact-two/page-contact-two.component';
+import { PageAccountDetailComponent } from './page-account-detail/page-account-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PageSettingsComponent } from './page-settings/page-settings.component';
     IonTabButtonComponent,
     PageAccountComponent,
     PageContactComponent,
-    PageSettingsComponent
+    PageSettingsComponent,
+    PageContactTwoComponent,
+    PageAccountDetailComponent
   ],
   imports: [
     BrowserModule,
