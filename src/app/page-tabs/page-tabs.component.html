@@ -1,19 +1,18 @@
 
-<ion-tabs-outlet>
+<ion-tabs-outlet></ion-tabs-outlet>
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="/tabs/account">
-      Account
-    </ion-tab-button>
-    <ion-tab-button tab="/tabs/contact">
-      Contact
-    </ion-tab-button>
-    <ion-tab-button tab="/tabs/settings">
-      Settings
-    </ion-tab-button>
-    <ion-tab-button (click)="alert('Custom Tab Bar Click!!')">
-      Custom
-    </ion-tab-button>
-  </ion-tab-bar>
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="account">
+    Account
+  </ion-tab-button>
+  <ion-tab-button tab="contact">
+    Contact
+  </ion-tab-button>
+  <ion-tab-button tab="settings">
+    Settings
+  </ion-tab-button>
+  <ion-tab-button (click)="alert('Custom Tab Bar Click!!')">
+    Custom
+  </ion-tab-button>
+</ion-tab-bar>
 
-</ion-tabs-outlet>
