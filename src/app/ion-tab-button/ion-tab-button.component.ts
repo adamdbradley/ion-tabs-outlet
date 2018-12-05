@@ -24,7 +24,7 @@ export class IonTabButtonComponent implements OnInit, OnDestroy {
   onClick(clickEv: UIEvent) {
     // simulating ionTabButtonClick from web component
     if (this.tab) {
-      this.tabs.switchTab(this.tab);
+      this.tabs.selectTab(this.tab);
     }
   }
 
@@ -36,8 +36,6 @@ export class IonTabButtonComponent implements OnInit, OnDestroy {
     });
 
     this.checkActive(this.router.url);
-
-    this.tabs.addTabStack(this.tab)
   }
 
   checkActive(currentUrl: string) {
@@ -46,7 +44,6 @@ export class IonTabButtonComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this._routeSub && this._routeSub.unsubscribe();
-    this.tabs.removeTabStack(this.tab)
   }
 
 }
