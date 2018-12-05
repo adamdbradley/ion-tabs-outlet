@@ -55,7 +55,7 @@ export class IonTabsOutletComponent {
     this.name = name || PRIMARY_OUTLET;
     parentContexts.onChildOutletCreated(this.name, this as any);
     this.hasStack = stack !== 'false' && stack !== false;
-    this.stackCtrl = new StackController(this.hasStack, this.nativeEl, router, null, zone);
+    // this.stackCtrl = new StackController(this.hasStack, this.nativeEl, router, null, zone);
   }
 
   ngOnDestroy(): void {
@@ -178,7 +178,7 @@ export class IonTabsOutletComponent {
       // Calling `markForCheck` to make sure we will run the change detection when the
       // `RouterOutlet` is inside a `ChangeDetectionStrategy.OnPush` component.
       this.changeDetector.markForCheck();
-      enteringView = this.stackCtrl.createView(this.activated, activatedRoute);
+      // enteringView = this.stackCtrl.createView(this.activated, activatedRoute);
     }
 
     const direction: NavDirection = 'tabSwitch';
